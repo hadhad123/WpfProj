@@ -1,0 +1,76 @@
+﻿<Window x:Class="WpfProj.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProj"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="565" Width="737">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo Description="Media Player">
+            <TaskbarItemInfo.ThumbButtonInfos>
+                <ThumbButtonInfo Description="Play" Click="ThumbButtonInfo_PlayClick" ImageSource="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\play.png"/>
+                <ThumbButtonInfo Description="Stop" Click="ThumbButtonInfo_StopClick" ImageSource="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\stop.png" />
+                <ThumbButtonInfo Description="Stop" Click="ThumbButtonInfo_PauseClick" ImageSource="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\pause.png" />
+            </TaskbarItemInfo.ThumbButtonInfos>
+        </TaskbarItemInfo>
+    </Window.TaskbarItemInfo>
+    <Grid>
+
+        <Slider x:Name="slider_player" HorizontalAlignment="Left" Margin="18,504,0,0" VerticalAlignment="Top" Width="582" ValueChanged="slider_player_ValueChanged" />
+
+        <Grid Margin="18,0,100.4,63.6" Height="48" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="112,3,0,10" Height="35" Width="50" HorizontalAlignment="Left" Background="Transparent" Click="Button_Click_2" >
+                <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\stop.png" Height="35" Width="50" RenderTransformOrigin="0.153,-0.7" />
+            </Button>
+            <Button Margin="167,3,0,10" Height="35" Width="50" HorizontalAlignment="Left" Background="Transparent" Click="Button_Click_1">
+                <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\pause.png" Height="25" Width="40" RenderTransformOrigin="0.153,-0.7" />
+            </Button>
+            <Button Margin="222,3,0,10" Height="35" Width="50" HorizontalAlignment="Left" Background="Transparent" RenderTransformOrigin="2.677,0.643" Click="Button_Click">
+                <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\play.png" Height="25" Width="40" RenderTransformOrigin="0.153,-0.7" />
+            </Button>
+            <Button Margin="277,3,239.4,10" Height="35" Width="50" Background="Transparent" RenderTransformOrigin="2.677,0.643" Click="Button_Click_3">
+                <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\next.png" Height="25" Width="40" RenderTransformOrigin="0.153,-0.7" />
+            </Button>
+            <Button Margin="0,3,459.4,10" Height="35" Width="50" Background="Transparent" RenderTransformOrigin="2.677,0.643" HorizontalAlignment="Right" Click="Button_Click_6">
+                <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\prev.png" Height="25" Width="40" RenderTransformOrigin="0.153,-0.7" />
+            </Button>
+            <Button Margin="0,3,184.4,10" Height="35" Width="50" Background="Transparent" RenderTransformOrigin="2.677,0.643" HorizontalAlignment="Right" Click="Button_Click_7">
+                <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\fastforward.png" Height="25" Width="40" RenderTransformOrigin="0.153,-0.7" />
+            </Button>
+            <Button Margin="0,3,516.4,10" Height="35" Width="50" Background="Transparent" RenderTransformOrigin="2.677,0.643" HorizontalAlignment="Right" Click="Button_Click_8">
+                <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\back.png" Height="25" Width="40" RenderTransformOrigin="0.153,-0.7" />
+            </Button>
+
+        </Grid>
+        <Grid HorizontalAlignment="Right" Margin="0,10,0.4,10.4" Width="100">
+            <ListBox x:Name="listBox_playlist" Margin="-20,30,10,40.2" RenderTransformOrigin="0.254,0.505"/>
+            <Slider x:Name="slider_vol" Margin="10,0" VerticalAlignment="Bottom" d:LayoutOverrides="TopMargin, BottomMargin" ValueChanged="slider_vol_ValueChanged"/>
+        </Grid>
+        <MediaElement x:Name="mediaElement" LoadedBehavior="Manual" Margin="70,53,182.4,199.8" MediaOpened="mediaElement_MediaOpened"/>
+        <Button Height="35" Width="50" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" Click="Button_Click_4">
+            <Image Source="c:\users\hhhhh\documents\visual studio 2015\Projects\WpfProj\WpfProj\images\folder.png" Height="25" Width="40" RenderTransformOrigin="0.153,-0.7" />
+        </Button>
+        <TextBox x:Name="textBox_fileName" HorizontalAlignment="Left" Height="23" Margin="70,10,0,0" TextWrapping="Wrap" Text="NowPlaying" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button1" Content="Remove`" Width="75" HorizontalAlignment="Right" Margin="0,18,10.4,0" VerticalAlignment="Top" Click="button1_Click"/>
+        <Button x:Name="button" Content="Add" Width="44" Click="button_Click_5" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,19,100.4,0"/>
+        <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="22" Margin="468,375,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label x:Name="label_slider" Content="Label" HorizontalAlignment="Left" Margin="18,478,0,0" VerticalAlignment="Top" Width="105"/>
+        <Slider x:Name="slider_list"  HorizontalAlignment="Left" Margin="18,375,0,0" VerticalAlignment="Top" Width="424" TickPlacement="TopLeft" TickFrequency="1" RenderTransformOrigin="0.5,0.5">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="179.539"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+
+
+    </Grid>
+</Window>
